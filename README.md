@@ -2,38 +2,44 @@
 
 ### 1. Crear el Ambiente Virtual
 
-Estando ubicados en el directorio principal, iniciamos un nuevo terminal.
-Para crear el ambiente virtual, ejecutamos el siguiente comando en el terminal:
+- Estando ubicados en el directorio principal, iniciamos un nuevo terminal.
+- Para crear el ambiente virtual, ejecutamos el siguiente comando en el terminal:
   python -m venv cesar
 
 ### 2. Activación de Ambiente Virtual
 
-Mediante el terminal accedemos al directorio creado anteriormente, ejecutando el siguiente comando:
+- Mediante el terminal accedemos al directorio creado anteriormente, ejecutando el siguiente comando:
 
   cd cesar\Scripts
 
-Para activar el ambiente virtual, ejecutamos el siguiente comando en el terminal:
+- Para activar el ambiente virtual, ejecutamos el siguiente comando en el terminal:
   .\Activate
 
-Si no se puede ejecutar el comando, debemos darle permisos al terminal, mediante el siguiente comando:
+- Si no se puede ejecutar el comando, debemos darle permisos al terminal, mediante el siguiente comando:
   Set-ExecutionPolicy Bypass -Scope CurrentUser
 
-Habiendo ejecutado este comando, ya deberíamos poder ejecutar el comando anterior y activar nuestro ambiente virtual.
+- Habiendo ejecutado este comando, ya deberíamos poder ejecutar el comando anterior y activar nuestro ambiente virtual.
 
 Si necesitamos desactivar el ambiente virtual, usaremos el comando:
   deactivate
 
+### 2. Actualización de PIP
 
-### 2. Instalar Dependencias
+- A pesar de haber generado un instalación del entorno desde 0, no está asegurado que contenga la última versión de PIP, por lo que debemos actualizarlo.
+- Para actualizarlo, ejecutamos el siguiente comando en nuestro terminal:
+  python -m pip install --upgrade pip
 
-Ejecutar en la terminal:
+
+### 3. Instalar Dependencias
+
+- Con el terminal nos ponemos en la raíz de la aplicación y ejecutamos:
 
   pip install -r requirements.txt
 
-### 3. Ejecutar el Proyecto
+### 4. Ejecutar el Proyecto
 
-Una vez todo listo, ya podemos iniciar el servidor de la aplicación, ejecutando el siguiente comando en el terminal:
+- Una vez todo listo, ya podemos iniciar el servidor de la aplicación, ejecutando el siguiente comando en el terminal:
 
   python manage.py runserver
 
-La URL del servidor será: "http://127.0.0.1:8000/"
+- La URL del servidor será: "http://127.0.0.1:8000/"
