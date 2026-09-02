@@ -10,7 +10,7 @@ Para crear el ambiente virtual, ejecutamos el siguiente comando en el terminal:
 
 Mediante el terminal accedemos al directorio creado anteriormente, ejecutando el siguiente comando:
 
-  cd nombre_ambiente\Scripts
+  cd cesar\Scripts
 
 Para activar el ambiente virtual, ejecutamos el siguiente comando en el terminal:
   .\Activate
