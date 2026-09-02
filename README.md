@@ -4,13 +4,13 @@
 
 - Estando ubicados en el directorio principal, iniciamos un nuevo terminal.
 - Para crear el ambiente virtual, ejecutamos el siguiente comando en el terminal:
-  python -m venv cesar
+  python -m venv nombre_entorno
 
 ### 2. Activación de Ambiente Virtual
 
 - Mediante el terminal accedemos al directorio creado anteriormente, ejecutando el siguiente comando:
 
-  cd cesar\Scripts
+  cd nombre_entorno\Scripts
 
 - Para activar el ambiente virtual, ejecutamos el siguiente comando en el terminal:
   .\Activate
