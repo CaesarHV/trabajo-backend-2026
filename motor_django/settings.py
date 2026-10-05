@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ihd*38jg^&159742q3fy%q^!+vqh-zoees4b@g5=buz(byp7#5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost','127.0.0.1']
 
 
 # Application definition
@@ -75,10 +75,15 @@ WSGI_APPLICATION = 'motor_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pais',  # Escribe aquí el nombre EXACTO de la base de datos que creaste en phpMyAdmin
+        'USER': 'root',                        # Usuario por defecto (si usas XAMPP/WAMP)
+        'PASSWORD': '',                        # Deja vacío si usas XAMPP (o pon tu contraseña si la cambiaste)
+        'HOST': '127.0.0.1',                   # Indica que está en tu computadora
+        'PORT': '3306',                        # Puerto por defecto de MySQL
     }
 }
+
 
 
 # Password validation
@@ -126,3 +131,8 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+from decouple import config
+
+SECRET_KEY = config('SECRET_KEY')
