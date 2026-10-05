@@ -72,15 +72,18 @@ WSGI_APPLICATION = 'motor_django.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
+from decouple import config
+
+SECRET_KEY = config('SECRET_KEY')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pais',  # Escribe aquí el nombre EXACTO de la base de datos que creaste en phpMyAdmin
-        'USER': 'root',                        # Usuario por defecto (si usas XAMPP/WAMP)
-        'PASSWORD': '',                        # Deja vacío si usas XAMPP (o pon tu contraseña si la cambiaste)
-        'HOST': '127.0.0.1',                   # Indica que está en tu computadora
-        'PORT': '3306',                        # Puerto por defecto de MySQL
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 
