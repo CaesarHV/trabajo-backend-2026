@@ -1,12 +1,19 @@
 from django.shortcuts import render
-from rest_framework import viewsets
 from django.contrib import messages
+from django.contrib.auth import login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
+from rest_framework import viewsets
 
 
 from .models import Pais, Region, Provincia, Comuna, Direccion, Biblioteca, Autor, Genero, SubGenero, Editorial, Idioma, Edicion, Libro, Estado, Ubicacion, Inventario, Usuario, Prestamo
 from .serializer import PaisSerializer, RegionSerializer, ProvinciaSerializer, ComunaSerializer, DireccionSerializer, BibliotecaSerializer, AutorSerializer, GeneroSerializer, SubGeneroSerializer, EditorialSerializer, IdiomaSerializer, EdicionSerializer, LibroSerializer, EstadoSerializer, UbicacionSerializer, InventarioSerializer, UsuarioSerializer, PrestamoSerializer
+
+# Vista para la página de bienvenida
+def bienvenida(request):
+    return render(request, 'bienvenida.html')
+
 #Verificar estado de sesión
 def vista_protegida(request):
     if not request.user.is_authenticated:
@@ -48,11 +55,6 @@ def logout_view(request):
     logout(request)
     # Redirige a la página de inicio de sesión
     return redirect('login')
-
-# Vista para la página de bienvenida
-def bienvenida(request):
-    return render(request, 'bienvenida.html')
-
 
 # API para gestionar los modelos
 class PaisViewSet(viewsets.ModelViewSet):

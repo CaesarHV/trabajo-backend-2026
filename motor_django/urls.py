@@ -1,19 +1,9 @@
+
 from django.contrib import admin
-from django.contrib import views as auth_views
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import views as auth_views
 from django.urls import path, include
 from app_encuestas import views
 from rest_framework import routers
-from rest_framework.authentication import SessionAuthentication
-
-@login_required
-def mi_vista(request):
-
-class PaisViewSet(viewsets.ModelViewSet):
-    queryset = Pais.objects.all()
-    serializer_class = PaisSerializer
-    authentication_classes = [SessionAuthentication]
-
 
 enrutador = routers.DefaultRouter()
 
@@ -36,15 +26,14 @@ enrutador.register(r'inventarios', views.InventarioViewSet)
 enrutador.register(r'usuarios', views.UsuarioViewSet)
 enrutador.register(r'prestamos', views.PrestamoViewSet)
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.bienvenida, name='bienvenida'),
     path('app_encuestas/', include(enrutador.urls)),
 
-    #URLs de autenticacion
+    # URLs de autenticación
     path('accounts/', include('django.contrib.auth.urls')),
-    path ('login/', auth_views.LoginView.as_view(), name='login'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('registro/', views.registro, name='registro'),
 ]
