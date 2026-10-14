@@ -122,3 +122,14 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+LOGIN_REDIRECT_URL = '/'
+
+# SESSION expira después de 1 hora
+SESSION_COOKIE_AGE = 3600
+
+# SESSION expira al cerrar el navegador
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True 
+
+# Usamos la DB para SESSION
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
