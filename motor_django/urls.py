@@ -29,6 +29,8 @@ enrutador.register(r'prestamos', views.PrestamoViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.bienvenida, name='bienvenida'),
+    path('vista-protegida/', views.vista_protegida, name='vista_protegida'),
+    path('inicio/', views.pagina_inicio, name='pagina_inicio'),
     path('app_encuestas/', include(enrutador.urls)),
 
     # URLs de autenticación
