@@ -30,6 +30,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.bienvenida, name='bienvenida'),
     path('vista-protegida/', views.vista_protegida, name='vista_protegida'),
+    
+    path(
+    'vista-protegida-clase/',
+    views.VistaProtegidaClase.as_view(),
+    name='vista_protegida_clase'
+    ),
+    
     path('inicio/', views.pagina_inicio, name='pagina_inicio'),
     path('app_encuestas/', include(enrutador.urls)),
 
